@@ -18,7 +18,7 @@ def test_display_schedule(schedule_planner, capsys):
     assert "Chemistry" in captured.out
 
 def test_filter_subjects_by_day(schedule_planner, capsys):
-    schedule_planner.filter_subjects_by_day("Thursday")
+    schedule_planner.filter_subjects_by_day("Monday")
     captured = capsys.readouterr()
     assert "Chemistry" in captured.out
 

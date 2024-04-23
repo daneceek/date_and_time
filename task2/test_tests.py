@@ -10,14 +10,14 @@ def test_pocet_sekund():
     assert second_from_midnight('10:30:15') == 37815
 
 
-# def test_neplatny_format():
-#     with pytest.raises(ValueError):
-#         second_from_midnight('25:00:00')  # Hodiny přesahují 24
-#     with pytest.raises(ValueError):
-#         second_from_midnight('12:60:00')  # Minuty přesahují 59
-#     with pytest.raises(ValueError):
-#         second_from_midnight('12:00:60')  # Sekundy přesahují 59
-#     with pytest.raises(ValueError):
-#         second_from_midnight('12:00')     # Nesprávný formát vstupu
-#     with pytest.raises(ValueError):
-#         second_from_midnight('12:00:00:00')  # Nesprávný formát vstupu
+def test_neplatny_format():
+    with pytest.raises(ValueError):
+        second_from_midnight('25:00:00')  # Hodiny přesahují 24
+    with pytest.raises(ValueError):
+        second_from_midnight('12:60:00')  # Minuty přesahují 59
+    with pytest.raises(ValueError):
+        second_from_midnight('12:00:60')  # Sekundy přesahují 59
+    with pytest.raises(ValueError):
+        second_from_midnight('12:00')     # Nesprávný formát vstupu
+    with pytest.raises(ValueError):
+        second_from_midnight('12:00:00:00')  # Nesprávný formát vstupu

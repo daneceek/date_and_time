@@ -1,0 +1,313 @@
+[
+    {
+        "label": "datetime",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "datetime",
+        "description": "datetime",
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "pytest",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "pytest",
+        "description": "pytest",
+        "detail": "pytest",
+        "documentation": {}
+    },
+    {
+        "label": "StudySchedulePlanner",
+        "importPath": "task3_final",
+        "description": "task3_final",
+        "isExtraImport": true,
+        "detail": "task3_final",
+        "documentation": {}
+    },
+    {
+        "label": "pytz",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "pytz",
+        "description": "pytz",
+        "detail": "pytz",
+        "documentation": {}
+    },
+    {
+        "label": "rrule",
+        "importPath": "dateutil.rrule",
+        "description": "dateutil.rrule",
+        "isExtraImport": true,
+        "detail": "dateutil.rrule",
+        "documentation": {}
+    },
+    {
+        "label": "DAILY",
+        "importPath": "dateutil.rrule",
+        "description": "dateutil.rrule",
+        "isExtraImport": true,
+        "detail": "dateutil.rrule",
+        "documentation": {}
+    },
+    {
+        "label": "calculate_age",
+        "kind": 2,
+        "importPath": "task1.task1",
+        "description": "task1.task1",
+        "peekOfCode": "def calculate_age(date):\n    rok, mesic, den = datetime.date.today().timetuple()[:3]\n    final_rok = rok - date.year\n    mesic = mesic - date.month\n    den = date.day - den\n    if mesic < 0:\n        final_rok -= 1\n    if mesic == 0:\n        if den < 0:\n            final_rok -= 1",
+        "detail": "task1.task1",
+        "documentation": {}
+    },
+    {
+        "label": "test_calculate_age",
+        "kind": 2,
+        "importPath": "task1.test_tests",
+        "description": "task1.test_tests",
+        "peekOfCode": "def test_calculate_age():\n    date_of_birth = datetime.date(1990, 4, 17)\n    assert calculate_age(date_of_birth) == 34  # Assuming current date is 2024-04-17\n    date_of_birth = datetime.date(2000, 10, 20)\n    assert calculate_age(date_of_birth) == 23  # Assuming current date is 2024-04-17\n    date_of_birth = datetime.date(2015, 3, 1)\n    assert calculate_age(date_of_birth) == 9  # As",
+        "detail": "task1.test_tests",
+        "documentation": {}
+    },
+    {
+        "label": "second_from_midnight",
+        "kind": 2,
+        "importPath": "task2.task2",
+        "description": "task2.task2",
+        "peekOfCode": "def second_from_midnight(time_str):\n    try:\n        time_object = datetime.strptime(time_str, '%H:%M:%S')\n        seconds_since_midnight = (time_object - time_object.replace(hour=0, minute=0, second=0)).total_seconds()\n        return int(seconds_since_midnight)\n    except ValueError as e:\n        raise ValueError(\"Neplatný formát\") from e",
+        "detail": "task2.task2",
+        "documentation": {}
+    },
+    {
+        "label": "test_pocet_sekund",
+        "kind": 2,
+        "importPath": "task2.test_tests",
+        "description": "task2.test_tests",
+        "peekOfCode": "def test_pocet_sekund():\n    assert second_from_midnight('00:00:00') == 0\n    assert second_from_midnight('01:00:00') == 3600\n    assert second_from_midnight('12:00:00') == 43200\n    assert second_from_midnight('23:59:59') == 86399\n    assert second_from_midnight('10:30:15') == 37815\ndef test_neplatny_format():\n    with pytest.raises(ValueError):\n        second_from_midnight('25:00:00')  # Hodiny přesahují 24\n    with pytest.raises(ValueError):",
+        "detail": "task2.test_tests",
+        "documentation": {}
+    },
+    {
+        "label": "test_neplatny_format",
+        "kind": 2,
+        "importPath": "task2.test_tests",
+        "description": "task2.test_tests",
+        "peekOfCode": "def test_neplatny_format():\n    with pytest.raises(ValueError):\n        second_from_midnight('25:00:00')  # Hodiny přesahují 24\n    with pytest.raises(ValueError):\n        second_from_midnight('12:60:00')  # Minuty přesahují 59\n    with pytest.raises(ValueError):\n        second_from_midnight('12:00:60')  # Sekundy přesahují 59\n    with pytest.raises(ValueError):\n        second_from_midnight('12:00')     # Nesprávný formát vstupu\n    with pytest.raises(ValueError):",
+        "detail": "task2.test_tests",
+        "documentation": {}
+    },
+    {
+        "label": "schedule_planner",
+        "kind": 5,
+        "importPath": "task3.example",
+        "description": "task3.example",
+        "peekOfCode": "schedule_planner = StudySchedulePlanner()\nschedule_planner.add_subject(\"Math\", \"2024-04-20\", \"10:00:00\", \"Room 101\")\nschedule_planner.add_subject(\"Physics\", \"2024-04-21\", \"14:00:00\", \"Room 201\")\nschedule_planner.add_subject(\"Chemistry\", \"2024-04-22\", \"09:00:00\", \"Room 301\")\nschedule_planner.display_schedule(datetime.datetime(2024, 4, 20), datetime.datetime(2024, 4, 22))\nschedule_planner.filter_subjects_by_day(\"Thursday\")\nschedule_planner.filter_subjects_by_time(datetime.time(10, 0), datetime.time(15, 0))\nschedule_planner.update_subject(\"Math\", \"2024-04-20\", \"11:00:00\", \"Room 102\")\nschedule_planner.remove_subject(\"Physics\")",
+        "detail": "task3.example",
+        "documentation": {}
+    },
+    {
+        "label": "StudySchedulePlanner",
+        "kind": 6,
+        "importPath": "task3.task3",
+        "description": "task3.task3",
+        "peekOfCode": "class StudySchedulePlanner:\n    def __init__(self):\n        self.schedule = []\n    def add_subject(self, name, date, time, location):\n        self.schedule.append({\n            \"name\": name,\n            \"date\": datetime.datetime.strptime(date, \"%Y-%m-%d\"),\n            \"time\": time,\n            \"location\": location\n        })",
+        "detail": "task3.task3",
+        "documentation": {}
+    },
+    {
+        "label": "schedule_planner",
+        "kind": 2,
+        "importPath": "task3.test_tests",
+        "description": "task3.test_tests",
+        "peekOfCode": "def schedule_planner():\n    planner = StudySchedulePlanner()\n    planner.add_subject(\"Math\", \"2024-04-20\", \"10:00:00\", \"Room 101\")\n    planner.add_subject(\"Physics\", \"2024-04-21\", \"14:00:00\", \"Room 201\")\n    planner.add_subject(\"Chemistry\", \"2024-04-22\", \"09:00:00\", \"Room 301\")\n    return planner\ndef test_display_schedule(schedule_planner, capsys):\n    schedule_planner.display_schedule(datetime.datetime(2024, 4, 20), datetime.datetime(2024, 4, 22))\n    captured = capsys.readouterr()\n    assert \"Math\" in captured.out",
+        "detail": "task3.test_tests",
+        "documentation": {}
+    },
+    {
+        "label": "test_display_schedule",
+        "kind": 2,
+        "importPath": "task3.test_tests",
+        "description": "task3.test_tests",
+        "peekOfCode": "def test_display_schedule(schedule_planner, capsys):\n    schedule_planner.display_schedule(datetime.datetime(2024, 4, 20), datetime.datetime(2024, 4, 22))\n    captured = capsys.readouterr()\n    assert \"Math\" in captured.out\n    assert \"Physics\" in captured.out\n    assert \"Chemistry\" in captured.out\ndef test_filter_subjects_by_day(schedule_planner, capsys):\n    schedule_planner.filter_subjects_by_day(\"Monday\")\n    captured = capsys.readouterr()\n    assert \"Chemistry\" in captured.out",
+        "detail": "task3.test_tests",
+        "documentation": {}
+    },
+    {
+        "label": "test_filter_subjects_by_day",
+        "kind": 2,
+        "importPath": "task3.test_tests",
+        "description": "task3.test_tests",
+        "peekOfCode": "def test_filter_subjects_by_day(schedule_planner, capsys):\n    schedule_planner.filter_subjects_by_day(\"Monday\")\n    captured = capsys.readouterr()\n    assert \"Chemistry\" in captured.out\ndef test_filter_subjects_by_time(schedule_planner, capsys):\n    schedule_planner.filter_subjects_by_time(datetime.time(10, 0), datetime.time(15, 0))\n    captured = capsys.readouterr()\n    assert \"Math\" in captured.out\n    assert \"Physics\" in captured.out\ndef test_update_subject(schedule_planner):",
+        "detail": "task3.test_tests",
+        "documentation": {}
+    },
+    {
+        "label": "test_filter_subjects_by_time",
+        "kind": 2,
+        "importPath": "task3.test_tests",
+        "description": "task3.test_tests",
+        "peekOfCode": "def test_filter_subjects_by_time(schedule_planner, capsys):\n    schedule_planner.filter_subjects_by_time(datetime.time(10, 0), datetime.time(15, 0))\n    captured = capsys.readouterr()\n    assert \"Math\" in captured.out\n    assert \"Physics\" in captured.out\ndef test_update_subject(schedule_planner):\n    schedule_planner.update_subject(\"Math\", \"2024-04-20\", \"11:00:00\", \"Room 102\")\n    assert schedule_planner.schedule[0][\"time\"] == \"11:00:00\"\n    assert schedule_planner.schedule[0][\"location\"] == \"Room 102\"\ndef test_remove_subject(schedule_planner):",
+        "detail": "task3.test_tests",
+        "documentation": {}
+    },
+    {
+        "label": "test_update_subject",
+        "kind": 2,
+        "importPath": "task3.test_tests",
+        "description": "task3.test_tests",
+        "peekOfCode": "def test_update_subject(schedule_planner):\n    schedule_planner.update_subject(\"Math\", \"2024-04-20\", \"11:00:00\", \"Room 102\")\n    assert schedule_planner.schedule[0][\"time\"] == \"11:00:00\"\n    assert schedule_planner.schedule[0][\"location\"] == \"Room 102\"\ndef test_remove_subject(schedule_planner):\n    schedule_planner.remove_subject(\"Physics\")\n    assert len(schedule_planner.schedule) == 2\n    assert \"Physics\" not in [event[\"name\"] for event in schedule_planner.schedule]",
+        "detail": "task3.test_tests",
+        "documentation": {}
+    },
+    {
+        "label": "test_remove_subject",
+        "kind": 2,
+        "importPath": "task3.test_tests",
+        "description": "task3.test_tests",
+        "peekOfCode": "def test_remove_subject(schedule_planner):\n    schedule_planner.remove_subject(\"Physics\")\n    assert len(schedule_planner.schedule) == 2\n    assert \"Physics\" not in [event[\"name\"] for event in schedule_planner.schedule]",
+        "detail": "task3.test_tests",
+        "documentation": {}
+    },
+    {
+        "label": "datum",
+        "kind": 5,
+        "importPath": "advanced",
+        "description": "advanced",
+        "peekOfCode": "datum = datetime.datetime.now(pytz.timezone('Europe/Prague'))\nprint(\"Aktuální čas v Praze:\", datum)\n# cal = CzechRepublic()\n# print(\"Je 16. dubna 2024 pracovní den?\", cal.is_working_day(datetime.date(2024, 4, 16)))\nstart = datetime.datetime(2024, 4, 1)\nend = datetime.datetime(2024, 4, 30)\nudalosti = rrule(DAILY, dtstart=start, until=end, byweekday=(0, 1, 2, 3, 4))  # Opakující se události od pondělí do pátku\nprint(list(udalosti))",
+        "detail": "advanced",
+        "documentation": {}
+    },
+    {
+        "label": "start",
+        "kind": 5,
+        "importPath": "advanced",
+        "description": "advanced",
+        "peekOfCode": "start = datetime.datetime(2024, 4, 1)\nend = datetime.datetime(2024, 4, 30)\nudalosti = rrule(DAILY, dtstart=start, until=end, byweekday=(0, 1, 2, 3, 4))  # Opakující se události od pondělí do pátku\nprint(list(udalosti))",
+        "detail": "advanced",
+        "documentation": {}
+    },
+    {
+        "label": "end",
+        "kind": 5,
+        "importPath": "advanced",
+        "description": "advanced",
+        "peekOfCode": "end = datetime.datetime(2024, 4, 30)\nudalosti = rrule(DAILY, dtstart=start, until=end, byweekday=(0, 1, 2, 3, 4))  # Opakující se události od pondělí do pátku\nprint(list(udalosti))",
+        "detail": "advanced",
+        "documentation": {}
+    },
+    {
+        "label": "udalosti",
+        "kind": 5,
+        "importPath": "advanced",
+        "description": "advanced",
+        "peekOfCode": "udalosti = rrule(DAILY, dtstart=start, until=end, byweekday=(0, 1, 2, 3, 4))  # Opakující se události od pondělí do pátku\nprint(list(udalosti))",
+        "detail": "advanced",
+        "documentation": {}
+    },
+    {
+        "label": "aktualni_datum_a_cas",
+        "kind": 5,
+        "importPath": "example",
+        "description": "example",
+        "peekOfCode": "aktualni_datum_a_cas = datetime.datetime.now()\nprint(\"Aktuální datum a čas:\", aktualni_datum_a_cas)\n# Vytvoření vlastního data a času\ndatum = datetime.date(2024, 4, 16)\ncas = datetime.time(12, 30, 15)\nprint(\"Vlastní datum:\", datum)\nprint(\"Vlastní čas:\", cas)\n# Přidání času k datu\nnovy_datum = datum + datetime.timedelta(days=5)\n# Porovnání dat",
+        "detail": "example",
+        "documentation": {}
+    },
+    {
+        "label": "datum",
+        "kind": 5,
+        "importPath": "example",
+        "description": "example",
+        "peekOfCode": "datum = datetime.date(2024, 4, 16)\ncas = datetime.time(12, 30, 15)\nprint(\"Vlastní datum:\", datum)\nprint(\"Vlastní čas:\", cas)\n# Přidání času k datu\nnovy_datum = datum + datetime.timedelta(days=5)\n# Porovnání dat\nif datum > datetime.date(2024, 4, 10):\n    print(\"Datum je pozdější než 10. dubna 2024.\")\n# Formátování dat a časů",
+        "detail": "example",
+        "documentation": {}
+    },
+    {
+        "label": "cas",
+        "kind": 5,
+        "importPath": "example",
+        "description": "example",
+        "peekOfCode": "cas = datetime.time(12, 30, 15)\nprint(\"Vlastní datum:\", datum)\nprint(\"Vlastní čas:\", cas)\n# Přidání času k datu\nnovy_datum = datum + datetime.timedelta(days=5)\n# Porovnání dat\nif datum > datetime.date(2024, 4, 10):\n    print(\"Datum je pozdější než 10. dubna 2024.\")\n# Formátování dat a časů\nprint(aktualni_datum_a_cas.strftime(\"%Y-%m-%d %H:%M:%S\"))  # Formátování do řetězce",
+        "detail": "example",
+        "documentation": {}
+    },
+    {
+        "label": "novy_datum",
+        "kind": 5,
+        "importPath": "example",
+        "description": "example",
+        "peekOfCode": "novy_datum = datum + datetime.timedelta(days=5)\n# Porovnání dat\nif datum > datetime.date(2024, 4, 10):\n    print(\"Datum je pozdější než 10. dubna 2024.\")\n# Formátování dat a časů\nprint(aktualni_datum_a_cas.strftime(\"%Y-%m-%d %H:%M:%S\"))  # Formátování do řetězce\ndatum_str = \"2024-04-16\"\ncas_str = \"12:30:15\"\ndatum_z_retezce = datetime.datetime.strptime(datum_str, \"%Y-%m-%d\")\ncas_z_retezce = datetime.datetime.strptime(cas_str, \"%H:%M:%S\")",
+        "detail": "example",
+        "documentation": {}
+    },
+    {
+        "label": "datum_str",
+        "kind": 5,
+        "importPath": "example",
+        "description": "example",
+        "peekOfCode": "datum_str = \"2024-04-16\"\ncas_str = \"12:30:15\"\ndatum_z_retezce = datetime.datetime.strptime(datum_str, \"%Y-%m-%d\")\ncas_z_retezce = datetime.datetime.strptime(cas_str, \"%H:%M:%S\")\nprint(\"Datum z řetězce:\", datum_z_retezce)\nprint(\"Čas z řetězce:\", cas_z_retezce)\n# List comprehension pro generování dat:\ndata = [datetime.date.today() + datetime.timedelta(days=i) for i in range(5)]\nprint(data)\n# Využití tuple unpackingu:",
+        "detail": "example",
+        "documentation": {}
+    },
+    {
+        "label": "cas_str",
+        "kind": 5,
+        "importPath": "example",
+        "description": "example",
+        "peekOfCode": "cas_str = \"12:30:15\"\ndatum_z_retezce = datetime.datetime.strptime(datum_str, \"%Y-%m-%d\")\ncas_z_retezce = datetime.datetime.strptime(cas_str, \"%H:%M:%S\")\nprint(\"Datum z řetězce:\", datum_z_retezce)\nprint(\"Čas z řetězce:\", cas_z_retezce)\n# List comprehension pro generování dat:\ndata = [datetime.date.today() + datetime.timedelta(days=i) for i in range(5)]\nprint(data)\n# Využití tuple unpackingu:\nrok, mesic, den = datetime.date.today().timetuple()[:3]",
+        "detail": "example",
+        "documentation": {}
+    },
+    {
+        "label": "datum_z_retezce",
+        "kind": 5,
+        "importPath": "example",
+        "description": "example",
+        "peekOfCode": "datum_z_retezce = datetime.datetime.strptime(datum_str, \"%Y-%m-%d\")\ncas_z_retezce = datetime.datetime.strptime(cas_str, \"%H:%M:%S\")\nprint(\"Datum z řetězce:\", datum_z_retezce)\nprint(\"Čas z řetězce:\", cas_z_retezce)\n# List comprehension pro generování dat:\ndata = [datetime.date.today() + datetime.timedelta(days=i) for i in range(5)]\nprint(data)\n# Využití tuple unpackingu:\nrok, mesic, den = datetime.date.today().timetuple()[:3]\nprint(\"Rok:\", rok, \"Mesic:\", mesic, \"Den:\", den)",
+        "detail": "example",
+        "documentation": {}
+    },
+    {
+        "label": "cas_z_retezce",
+        "kind": 5,
+        "importPath": "example",
+        "description": "example",
+        "peekOfCode": "cas_z_retezce = datetime.datetime.strptime(cas_str, \"%H:%M:%S\")\nprint(\"Datum z řetězce:\", datum_z_retezce)\nprint(\"Čas z řetězce:\", cas_z_retezce)\n# List comprehension pro generování dat:\ndata = [datetime.date.today() + datetime.timedelta(days=i) for i in range(5)]\nprint(data)\n# Využití tuple unpackingu:\nrok, mesic, den = datetime.date.today().timetuple()[:3]\nprint(\"Rok:\", rok, \"Mesic:\", mesic, \"Den:\", den)\n# Formátování data a času pomocí f-stringu:",
+        "detail": "example",
+        "documentation": {}
+    },
+    {
+        "label": "data",
+        "kind": 5,
+        "importPath": "example",
+        "description": "example",
+        "peekOfCode": "data = [datetime.date.today() + datetime.timedelta(days=i) for i in range(5)]\nprint(data)\n# Využití tuple unpackingu:\nrok, mesic, den = datetime.date.today().timetuple()[:3]\nprint(\"Rok:\", rok, \"Mesic:\", mesic, \"Den:\", den)\n# Formátování data a času pomocí f-stringu:\nprint(f\"Dnes je {datetime.date.today():%A, %d. %B %Y}\")\n# Zjištění počtu dní v měsíci:\naktualni_mesic = datetime.date.today().month\npocet_dni = (datetime.date(datetime.date.today().year, aktualni_mesic % 12 + 1, 1) - datetime.timedelta(days=1)).day",
+        "detail": "example",
+        "documentation": {}
+    },
+    {
+        "label": "aktualni_mesic",
+        "kind": 5,
+        "importPath": "example",
+        "description": "example",
+        "peekOfCode": "aktualni_mesic = datetime.date.today().month\npocet_dni = (datetime.date(datetime.date.today().year, aktualni_mesic % 12 + 1, 1) - datetime.timedelta(days=1)).day\nprint(\"Počet dní v aktuálním měsíci:\", pocet_dni)",
+        "detail": "example",
+        "documentation": {}
+    },
+    {
+        "label": "pocet_dni",
+        "kind": 5,
+        "importPath": "example",
+        "description": "example",
+        "peekOfCode": "pocet_dni = (datetime.date(datetime.date.today().year, aktualni_mesic % 12 + 1, 1) - datetime.timedelta(days=1)).day\nprint(\"Počet dní v aktuálním měsíci:\", pocet_dni)",
+        "detail": "example",
+        "documentation": {}
+    }
+]
